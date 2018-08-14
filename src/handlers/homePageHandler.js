@@ -1,8 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 
-const filePathLogin = path.join(__dirname, '..', '..', 'output', 'loginSignUp', 'login.html');
-const filePathMain = path.join(__dirname, '..', '..', 'output', 'loginSignUp', 'main.html');
+const filePathLogin = path.join(__dirname, '..', '..', 'output', 'login.html');
+const filePathMain = path.join(__dirname, '..', '..', 'output', 'main.html');
 
 /* homePageHandler will check if the user is already logged in to the system:
 *  if so go to main.html

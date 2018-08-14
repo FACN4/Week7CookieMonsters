@@ -3,13 +3,15 @@ const handlers = require('./handlers/handlers');
 const assetURLs = [
   '/main.html',
   '/login.html',
-  '/loginSignUp/createAccount.html',
+  '/createAccount.html',
   '/dom.js',
   '/style.css',
-  '/xhr.js',
+  '/mainAssets/xhr.js',
   '/favicon.ico',
   '/supertest-500',
-  '/loginSignUp/forms.css',
+  '/loginAssets/forms.css',
+  '/loginAssets/authentication.js',
+  '/loginAssets/validation.js',
 ];
 
 const router = (request, response) => {
