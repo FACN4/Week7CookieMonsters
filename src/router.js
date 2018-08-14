@@ -3,16 +3,18 @@ const handlers = require('./handlers/handlers');
 const assetURLs = [
   '/main.html',
   '/login.html',
-  '/createAccount.html',
+  '/loginSignUp/createAccount.html',
   '/dom.js',
   '/style.css',
   '/xhr.js',
   '/favicon.ico',
   '/supertest-500',
+  '/loginSignUp/forms.css',
 ];
 
 const router = (request, response) => {
   const { url } = request;
+  console.log(url);
   if (url === '/') {
     handlers.homePageHandler(request, response);
   } else if (assetURLs.includes(url)) {

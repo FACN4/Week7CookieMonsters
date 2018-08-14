@@ -22,7 +22,6 @@ const homePageHandler = (request, response) => {
     });
   } else {
     // if no redirect to login.html
-    console.log(filePathLogin);
     fs.readFile(filePathLogin, (error, file) => {
       if (error) {
         response.writeHead(500, { 'Content-Type': 'text/html' });
