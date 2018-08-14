@@ -13,6 +13,8 @@ const runDbBuild = () => new Promise((resolve, reject) => {
   });
 });
 
-runDbBuild.then(console.log).catch(console.log);
+if (process.argv[2] === 'run') {
+  runDbBuild.then(console.log).catch(console.log);
+}
 
 module.exports = runDbBuild;
