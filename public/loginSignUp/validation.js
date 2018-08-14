@@ -1,4 +1,4 @@
-/* global */
+/* global signUp */
 /* eslint-disable no-param-reassign */
 
 const username = document.getElementById('username');
@@ -76,13 +76,8 @@ confirmPassword.addEventListener('focusout', checkConfirmPw);
 password.addEventListener('keyup', passwordScore);
 
 form.addEventListener('submit', (event) => {
-  if (!checkUsername()) {
-    event.preventDefault();
-  }
-  if (!checkPw()) {
-    event.preventDefault();
-  }
-  if (!checkConfirmPw()) {
-    event.preventDefault();
+  event.preventDefault();
+  if (checkUsername() && checkPw() && checkConfirmPw()) {
+    signUp([username.value, password.value]);
   }
 });
