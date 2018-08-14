@@ -19,6 +19,8 @@ const router = (request, response) => {
     handlers.assetsHandler(url, request, response);
   } else if (url === '/create-user') {
     handlers.createUserHandler(request, response);
+  } else if (url === '/login') {
+    handlers.loginHandler(request, response);
   } else {
     handlers.notFoundHandler(response);
   }

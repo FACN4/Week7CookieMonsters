@@ -1,3 +1,5 @@
+const { checkUsernameExists } = require('./createUserHandler');
+
 const createUserHandler = (request, response) => {
   let allData = '';
   request.on('data', (chunk) => {
@@ -6,5 +8,9 @@ const createUserHandler = (request, response) => {
   request.on('end', () => {
     const body = JSON.parse(allData);
     console.log(body);
+    // Check username isn't already taken
   });
 };
+
+
+module.exports = createUserHandler;

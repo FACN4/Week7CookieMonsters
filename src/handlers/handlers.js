@@ -8,4 +8,5 @@ module.exports = {
   notFoundHandler,
   assetsHandler,
   createUserHandler,
+  loginHandler,
 };
