@@ -6,7 +6,9 @@ const createNewUser = (username, password) => {
       if (err) {
         callback(err);
       } else {
-
+        bcrypt.hash(password, salt, (err, hash) => {
+          // store hash in DB
+        });
       }
     });
   };
