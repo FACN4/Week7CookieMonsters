@@ -1,6 +1,8 @@
 /* global postJsonXHR */
 /* eslint-disable no-unused-vars */
 
-const signUp = (details) => {
-  postJsonXHR('/create-user', details, console.log);
+const signUp = (details, cb) => {
+  postJsonXHR('/create-user', details, (err) => {
+    if (err) cb(err);
+  });
 };

@@ -3,11 +3,11 @@
 const postJsonXHR = (url, body, cb) => {
   const xhr = new XMLHttpRequest();
   xhr.onreadystatechange = () => {
-    if (xhr.readystate === 4) {
-      if (xhr.status === 200) {
-        cb(null, xhr.responseText);
+    if (xhr.readyState === 4) {
+      if (xhr.status === 300) {
+        cb(null);
       } else {
-        cb(new Error());
+        cb(xhr.responseText);
       }
     }
   };

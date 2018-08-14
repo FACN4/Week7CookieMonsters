@@ -8,15 +8,25 @@ const createUserHandler = (request, response) => {
   });
   request.on('end', () => {
     const userDetails = JSON.parse(allData);
-    checkUsernameExists(userDetails.username, (userIsUnique) => {
-      if (userIsUnique) {
-        createNewUser(userDetails, console.log);
-        // Tell front end all ok
+    checkUsernameExists(userDetails.username, (err, userIsUnique) => {
+      if (err) {
+        console.log(err);
+      } else if (userIsUnique) {
+        createNewUser(userDetails, (error) => {
+          if (error) {
+            response.writeHead(500, { 'Content-Type': 'text/plain' });
+            response.end('Sorry we were not able to make you an account');
+          } else {
+            // Username creation successfull
+            response.writeHead(300, { Location: '/main.html' });
+            response.end();
+          }
+        });
       } else {
-        // Tell front end to change username
+        response.writeHead(202, { 'Content-Type': 'text/plain' });
+        response.end('Sorry, that username is already taken');
       }
     });
-    // Check username isn't already taken
   });
 };
 

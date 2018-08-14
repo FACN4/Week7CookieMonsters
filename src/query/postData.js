@@ -31,4 +31,5 @@ const createNewUser = (userDetails, cb) => {
   });
 };
 
+
 module.exports = { createNewUser };

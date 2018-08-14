@@ -5,11 +5,11 @@
 var postJsonXHR = function postJsonXHR(url, body, cb) {
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function () {
-    if (xhr.readystate === 4) {
-      if (xhr.status === 200) {
-        cb(null, xhr.responseText);
+    if (xhr.readyState === 4) {
+      if (xhr.status === 300) {
+        cb(null);
       } else {
-        cb(new Error());
+        cb(xhr.responseText);
       }
     }
   };

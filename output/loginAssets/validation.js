@@ -67,15 +67,18 @@ var passwordScore = function passwordScore() {
   meter.value = score;
 };
 
-// username.addEventListener('focusout', checkUsername);
+username.addEventListener('focusout', checkUsername);
 // password.addEventListener('focusout', checkPw);
 // confirmPassword.addEventListener('focusout', checkConfirmPw);
 
 password.addEventListener('keyup', passwordScore);
 
-form.addEventListener('submit', function () {
-  // event.preventDefault();
+form.addEventListener('submit', function (event) {
+  event.preventDefault();
   // if (checkUsername() && checkPw() && checkConfirmPw()) {
-  signUp({ username: username.value, password: password.value });
+  var userDetails = { username: username.value, password: password.value };
+  signUp(userDetails, function (errMsg) {
+    return displayErr(usernameErr, errMsg);
+  });
   // }
 });

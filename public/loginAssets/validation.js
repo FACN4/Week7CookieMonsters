@@ -69,15 +69,16 @@ const passwordScore = () => {
   meter.value = score;
 };
 
-// username.addEventListener('focusout', checkUsername);
+username.addEventListener('focusout', checkUsername);
 // password.addEventListener('focusout', checkPw);
 // confirmPassword.addEventListener('focusout', checkConfirmPw);
 
 password.addEventListener('keyup', passwordScore);
 
-form.addEventListener('submit', () => {
-  // event.preventDefault();
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
   // if (checkUsername() && checkPw() && checkConfirmPw()) {
-  signUp({ username: username.value, password: password.value });
+  const userDetails = { username: username.value, password: password.value };
+  signUp(userDetails, errMsg => displayErr(usernameErr, errMsg));
   // }
 });
