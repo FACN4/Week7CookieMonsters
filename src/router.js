@@ -3,7 +3,7 @@ const handlers = require('./handlers/handlers');
 const assetURLs = [
   '/main.html',
   '/login.html',
-  '/createAccount.html'
+  '/createAccount.html',
   '/dom.js',
   '/style.css',
   '/xhr.js',
@@ -14,9 +14,11 @@ const assetURLs = [
 const router = (request, response) => {
   const { url } = request;
   if (url === '/') {
-    handlers.homePageHandler(response);
+    handlers.homePageHandler(request, response);
   } else if (assetURLs.includes(url)) {
-    handlers.assetsHandler(url, response);
+    handlers.assetsHandler(url, request, response);
+  } else if (url === '/create-user') {
+    handlers.createUserHandler(request, response);
   } else {
     handlers.notFoundHandler(response);
   }
