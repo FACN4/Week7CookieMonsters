@@ -1,0 +1,121 @@
+* {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+}
+body{
+  margin:0px;
+}
+
+h1 {
+  font-size: 34px;
+  text-align: center;
+  background-color: rgb(132, 2, 249);
+  color:white;
+  margin:0px;
+  padding: 10px;
+  font-weight: 600;
+}
+section {
+  max-width: 500px;
+  width:95%;
+  height: auto;
+  margin: 2em auto 0em;
+  padding: 1em 1em 1em;
+  background: rgb(243, 243, 243);
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+h2 {
+  font-size: 20px;
+  width: 90%;
+  margin: 20px auto;
+  text-align: center;
+  display: block;
+}
+
+label {
+  width: 98%;
+  display: block;
+  margin: 1em auto 0.3em;
+}
+
+input {
+  width: 95%;
+  height: 30px;
+  display: block;
+  margin: 1em auto 0;
+  padding: 0.5em;
+  outline: none;
+  border: 1px solid rgba(3, 3, 3, 0.99);
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+button {
+  width: 70%;
+  height: 50px;
+  display: block;
+  margin: 1em auto 1em auto;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(36, 36, 36);
+  color: white;
+}
+
+.button__signup {
+  width:50%;
+ background-color: rgb(143, 47, 177);
+}
+
+.error {
+  width: 90%;
+  min-height: 1.5em;
+  margin: 0.2em auto 0.5em;
+  font-size: 12px;
+  color: rgb(203, 58, 5);
+}
+#haveAccount{
+  display:block;
+  width: 100%;
+  text-align: center;
+  margin: 0.5em auto 0.5em auto;
+}
+#or{
+  text-align: center;
+  font-size: 18px;
+  padding: 2px;
+
+}
+/* THE PASSWORD METER */
+meter {
+  border-radius: 10px;
+  width: 100%;
+  margin:auto;
+  height: 38px;
+  border: 1px solid #ccc;
+  margin: 1em auto 0;
+  padding: 0.5em;
+}
+meter::-webkit-meter-bar {
+  background: none; /* Required to get rid of the default background property */
+  background-color: whiteSmoke;
+  box-shadow: 0px 5px 5px -5px #333 inset;
+  border-radius: 5px;
+  border: 1px solid grey;
+}
+meter::-webkit-meter-optimum-value {border-radius: 2px;}
+meter[value="1"]::-webkit-meter-optimum-value { background: red;}
+meter[value="2"]::-webkit-meter-optimum-value { background: yellow; }
+meter[value="3"]::-webkit-meter-optimum-value { background: orange; }
+meter[value="4"]::-webkit-meter-optimum-value { background: rgb(101, 182, 99);}
+meter[value="5"]::-webkit-meter-optimum-value { background: green; }
+
+
+/* ---------TABLET-------- */
+@media only screen and (min-width: 500px){
+
+}
+/* ---------DESKTOP-------- */
