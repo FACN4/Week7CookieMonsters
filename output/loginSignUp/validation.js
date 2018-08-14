@@ -1,21 +1,23 @@
+'use strict';
+
 /* global signUp */
 /* eslint-disable no-param-reassign */
 
-const username = document.getElementById('username');
-const password = document.getElementById('password');
-const confirmPassword = document.getElementById('confirmPassword');
-const form = document.getElementsByTagName('form')[0];
-const meter = document.getElementById('meter');
+var username = document.getElementById('username');
+var password = document.getElementById('password');
+var confirmPassword = document.getElementById('confirmPassword');
+var form = document.getElementsByTagName('form')[0];
+var meter = document.getElementById('meter');
 
-const usernameErr = document.getElementById('usernameErr');
-const passwordErr = document.getElementById('passwordErr');
-const confirmErr = document.getElementById('confirmErr');
+var usernameErr = document.getElementById('usernameErr');
+var passwordErr = document.getElementById('passwordErr');
+var confirmErr = document.getElementById('confirmErr');
 
 function displayErr(errElem, errMsg) {
   errElem.innerText = errMsg;
 }
 
-const checkUsername = () => {
+var checkUsername = function checkUsername() {
   if (username.validity.valueMissing) {
     displayErr(usernameErr, 'Please enter a username');
   } else if (false) {
@@ -28,14 +30,11 @@ const checkUsername = () => {
   return false;
 };
 
-const checkPw = () => {
+var checkPw = function checkPw() {
   if (password.validity.patternMismatch) {
-    displayErr(
-      passwordErr,
-      'Password must contain at least eight characters, including one letter and one number',
-    );
+    displayErr(passwordErr, 'Password must contain at least eight characters, including one letter and one number');
     return false;
-  } if (password.validity.valueMissing) {
+  }if (password.validity.valueMissing) {
     displayErr(passwordErr, 'Please enter a password');
     return false;
   }
@@ -43,11 +42,11 @@ const checkPw = () => {
   return true;
 };
 
-const checkConfirmPw = () => {
+var checkConfirmPw = function checkConfirmPw() {
   if (password.value !== confirmPassword.value) {
     displayErr(confirmErr, 'Passwords do not match');
     return false;
-  } if (confirmPassword.validity.valueMissing) {
+  }if (confirmPassword.validity.valueMissing) {
     displayErr(confirmErr, 'Please confirm your password');
     return false;
   }
@@ -55,12 +54,11 @@ const checkConfirmPw = () => {
   return true;
 };
 
-
 // should you add a break after each case?
-const passwordScore = () => {
-  const pass = password.value;
-  const user = username.value;
-  let score = 0;
+var passwordScore = function passwordScore() {
+  var pass = password.value;
+  var user = username.value;
+  var score = 0;
   if (pass.length > 8) score += 1;
   if (/(?=.*[A-Z])(?=.*[a-z])/.test(pass)) score += 1; // Upper and Lower case
   if (/[0-9]/.test(pass)) score += 1; // Numbers
@@ -75,7 +73,7 @@ confirmPassword.addEventListener('focusout', checkConfirmPw);
 
 password.addEventListener('keyup', passwordScore);
 
-form.addEventListener('submit', (event) => {
+form.addEventListener('submit', function (event) {
   event.preventDefault();
   if (checkUsername() && checkPw() && checkConfirmPw()) {
     signUp({ username: username.value, password: password.value });

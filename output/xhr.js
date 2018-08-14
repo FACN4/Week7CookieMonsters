@@ -1,8 +1,10 @@
+'use strict';
+
 /* eslint-disable no-unused-vars */
 
-const postJsonXHR = (url, body, cb) => {
-  const xhr = new XMLHttpRequest();
-  xhr.onreadystatechange = () => {
+var postJsonXHR = function postJsonXHR(url, body, cb) {
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function () {
     if (xhr.readystate === 4) {
       if (xhr.status === 200) {
         cb(null, xhr.responseText);

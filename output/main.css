@@ -1,0 +1,51 @@
+* {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  /* font-size: 15px; */
+}
+body{
+  margin:0px;
+}
+
+h1 {
+  font-size: 34px;
+  text-align: center;
+  background-color: rgb(132, 2, 249);
+  color:white;
+  margin:0px;
+  padding: 10px;
+  font-weight: 600;
+}
+
+section{
+  overflow-y:scroll;
+  height:60%;
+}
+
+.post{
+  display:flex;
+  padding: 5px 5px 10px 5px;
+}
+
+img{
+  height:60px;
+}
+
+
+footer{
+  display:flex;
+  width: 100%;
+  justify-content: space-between;
+  position:absolute;
+  bottom:0px;
+  color:white;
+  background-color: black;
+  font-size: 25px;
+}
+footer span{
+  padding: 10px 5%;
+}
+
+footer span:hover{
+  background-color: rgb(132, 2, 249);
+}
