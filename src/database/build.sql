@@ -10,7 +10,7 @@ CREATE TABLE colour(
 CREATE TABLE users(
   id SERIAL PRIMARY KEY,
   name varchar(20) UNIQUE NOT NULL,
-  password varchar(20) NOT NULL,
+  password varchar(80) NOT NULL,
   photo_url varchar(255) NOT NULL,
   is_admin boolean,
   name_colour_id INTEGER REFERENCES colour(id)

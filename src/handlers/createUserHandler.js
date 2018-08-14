@@ -1,4 +1,5 @@
-const { checkUsernameExists } = require('./createUserHandler');
+const { checkUsernameExists } = require('../query/getData.js');
+const { createNewUser } = require('../query/postData.js');
 
 const createUserHandler = (request, response) => {
   let allData = '';
@@ -6,8 +7,15 @@ const createUserHandler = (request, response) => {
     allData += chunk;
   });
   request.on('end', () => {
-    const body = JSON.parse(allData);
-    console.log(body);
+    const userDetails = JSON.parse(allData);
+    checkUsernameExists(userDetails.username, (userIsUnique) => {
+      if (userIsUnique) {
+        createNewUser(userDetails, console.log);
+        // Tell front end all ok
+      } else {
+        // Tell front end to change username
+      }
+    });
     // Check username isn't already taken
   });
 };

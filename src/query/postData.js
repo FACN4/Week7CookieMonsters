@@ -1,4 +1,5 @@
 const bcrypt = require('bcryptjs');
+const dbConnection = require('../database/dbconnection.js');
 
 const hashPassword = (password, callback) => {
   bcrypt.genSalt(10, (err, salt) => {
@@ -9,10 +10,24 @@ const hashPassword = (password, callback) => {
     }
   });
 };
-const createNewUser = (username, password) => {
-  hashPassword(password, (err, hash) => {
 
+const createNewUser = (userDetails, cb) => {
+  hashPassword(userDetails.password, (err, hash) => {
     // SQL command to store username and hash
+    const imgURL = `https://robohash.org/${userDetails.username}`;
+    const colourID = Math.floor(Math.random() * 100) + 1;
+    const queryString = `INSERT INTO users (name, password, photo_url,is_admin,name_colour_id)
+    VALUES ($1, $2, $3, $4, $5);`;
+
+    const values = [userDetails.username, hash, imgURL, false, colourID];
+
+    dbConnection.query(queryString, values, (error) => {
+      if (error) {
+        cb(error);
+      } else {
+        cb(null);
+      }
+    });
   });
 };
 
