@@ -3,8 +3,6 @@
 /* global login */
 /* eslint-disable no-param-reassign */
 
-console.log('THIS IS SUBMIT LOGIN');
-
 var userNameElement = document.getElementById('username');
 var passwordElement = document.getElementById('password');
 var loginBtnElement = document.getElementById('loginBTN');
@@ -17,9 +15,7 @@ function displayErr(errElem, errMsg) {
 }
 
 var validateLogin = function validateLogin(userName, passwordOf) {
-  console.log('GOT INTO validateLogin');
   var userDetails = { username: userName, password: passwordOf };
-  console.log(' THIS IS VALIDATE LOGIN DETAILS: ', userName, passwordOf);
   // const userDetails = { username: '1234', password: '1234' };
   login(userDetails, function (errMsg) {
     if (errMsg === 'passwords do not match') {

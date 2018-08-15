@@ -1,5 +1,4 @@
 /* eslint-disable no-unused-vars */
-console.log('this is XHR');
 const postJsonXHR = (url, body, cb) => {
   const xhr = new XMLHttpRequest();
   xhr.onreadystatechange = () => {

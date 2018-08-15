@@ -6,19 +6,21 @@ var userMsg = document.getElementById('userMsg');
 var submitBtn = document.getElementById('submitBtn');
 var messageBoard = document.getElementById('message-board');
 var logoutBtn = document.getElementById('logout');
+var usertag = document.getElementById('username');
 
-var globalMessages = '';
+var globalMessages = [];
+var globalUser = '';
 
 var updateScroll = function updateScroll() {
-  console.log('scroll');
-  console.log(messageBoard.scrollTop);
-  console.log(messageBoard.scrollHeight);
   messageBoard.scrollTop = messageBoard.scrollHeight;
 };
 
 var buildMsg = function buildMsg(imgURL, username, colour, text) {
   var post = document.createElement('div');
   post.className = 'post';
+  if (globalUser === username) {
+    post.className = 'post currentUser';
+  }
   var image = document.createElement('img');
   image.className = 'userimg';
   image.src = imgURL;
@@ -44,8 +46,6 @@ var updateBoard = function updateBoard() {
   getXhr('/get-msgs', function (allMessages) {
     if (JSON.stringify(allMessages) !== JSON.stringify(globalMessages)) {
       globalMessages = allMessages;
-      console.log(globalMessages);
-      console.log(allMessages);
       allMessages.forEach(function (msg) {
         buildMsg(msg.photo_url, msg.name, msg.colour, msg.text);
       });
@@ -54,18 +54,32 @@ var updateBoard = function updateBoard() {
   });
 };
 
+getXhr('./unlockCookie', function (resp) {
+  globalUser = resp.name;
+  usertag.textContent = resp.name;
+  updateBoard();
+});
+
 window.setInterval(updateBoard, 1000);
 
-updateBoard();
-
-submitBtn.addEventListener('click', function () {
+var sendMessage = function sendMessage() {
   var message = userMsg.value;
   postJsonXHR('/send-msg', message, function (err) {
     if (err) {
       console.log(err);
     }
     updateBoard();
+    userMsg.value = '';
   });
+};
+
+submitBtn.addEventListener('click', sendMessage);
+
+userMsg.addEventListener('keydown', function (e) {
+  if (e.keyCode === 13) {
+    e.preventDefault();
+    sendMessage();
+  }
 });
 
 logoutBtn.addEventListener('click', function () {

@@ -66,6 +66,7 @@ img{
 }
 .textBox button{
   width: 10%;
+  height: 100%;
 }
 
 footer{
@@ -84,4 +85,8 @@ footer span{
 
 #logout:hover{
   background-color: rgb(132, 2, 249);
+}
+
+.currentUser {
+  background-color: rgb(190, 230, 169);
 }

@@ -70,15 +70,15 @@ const passwordScore = () => {
 };
 
 username.addEventListener('focusout', checkUsername);
-// password.addEventListener('focusout', checkPw);
-// confirmPassword.addEventListener('focusout', checkConfirmPw);
+password.addEventListener('focusout', checkPw);
+confirmPassword.addEventListener('focusout', checkConfirmPw);
 
 password.addEventListener('keyup', passwordScore);
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
-  // if (checkUsername() && checkPw() && checkConfirmPw()) {
-  const userDetails = { username: username.value, password: password.value };
-  signUp(userDetails, errMsg => displayErr(usernameErr, errMsg));
-  // }
+  if (checkUsername() && checkPw() && checkConfirmPw()) {
+    const userDetails = { username: username.value, password: password.value };
+    signUp(userDetails, errMsg => displayErr(usernameErr, errMsg));
+  }
 });

@@ -7,6 +7,7 @@ const sendMsgHandler = require('./sendMsgHandler');
 const getMsgsHandler = require('./getMsgsHandler');
 const logoutHandler = require('./logoutHandler');
 const mainHandler = require('./mainHandler');
+const unlockCookieHandler = require('./unlockCookieHandler');
 
 module.exports = {
   homePageHandler,
@@ -18,4 +19,5 @@ module.exports = {
   getMsgsHandler,
   logoutHandler,
   mainHandler,
+  unlockCookieHandler,
 };
