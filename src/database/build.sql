@@ -18,7 +18,7 @@ CREATE TABLE users(
 
 CREATE TABLE messages(
   id SERIAL PRIMARY KEY,
-  date DATE NOT NULL
+  date DATE NOT NULL,
   text TEXT NOT NULL,
   user_id INTEGER REFERENCES users(id)
 );
