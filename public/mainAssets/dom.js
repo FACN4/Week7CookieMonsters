@@ -69,7 +69,7 @@ submitBtn.addEventListener('click', () => {
 });
 
 logoutBtn.addEventListener('click', () => {
-  getXhr('/logout', (err) => {
+  postJsonXHR('/logout', { obj: 'empty' }, (err) => {
     if (err) {
       console.log('Sorry, we could not log you out');
     } else {

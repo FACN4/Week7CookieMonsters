@@ -8,6 +8,10 @@
 var login = function login(details, cb) {
   console.log('GOT INTO LOGIN XHR');
   postJsonXHR('/login', details, function (err) {
-    if (err) cb(err);
+    if (err) {
+      cb(err);
+    } else {
+      window.location.replace('/main.html');
+    }
   });
 };

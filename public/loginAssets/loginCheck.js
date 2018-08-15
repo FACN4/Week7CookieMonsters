@@ -6,6 +6,10 @@
 const login = (details, cb) => {
   console.log('GOT INTO LOGIN XHR');
   postJsonXHR('/login', details, (err) => {
-    if (err) cb(err);
+    if (err) {
+      cb(err);
+    } else {
+      window.location.replace('/main.html');
+    }
   });
 };

@@ -1,8 +1,7 @@
-const jwt = require('jsonwebtoken');
-const cookie = require('cookie');
-
+const { sign } = require('jsonwebtoken');
 const { checkNameAndPassword } = require('../query/checkUserAndPassword');
 
+const SECRET = 'denis';
 const loginHandler = (request, response) => {
   let allData = '';
   request.on('data', (chunk) => {
@@ -27,7 +26,9 @@ const loginHandler = (request, response) => {
         response.writeHead(500, { 'Content-Type': 'text/plain' });
         response.end(result);
       } else {
-        response.writeHead(200);
+        const cookieDetails = { logged_in: true, user_id: result.id };
+        const cookie = sign(cookieDetails, SECRET);
+        response.writeHead(200, { 'Set-Cookie': `jwt=${cookie}; HttpOnly` });
         response.end();
       }
     });
