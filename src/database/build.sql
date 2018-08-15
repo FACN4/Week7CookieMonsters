@@ -16,6 +16,13 @@ CREATE TABLE users(
   name_colour_id INTEGER REFERENCES colour(id)
 );
 
+CREATE TABLE messages(
+  id SERIAL PRIMARY KEY,
+  date DATE NOT NULL
+  text TEXT NOT NULL,
+  user_id INTEGER REFERENCES users(id)
+);
+
 CREATE TABLE rooms(
   id SERIAL PRIMARY KEY,
   name varchar(30) NOT NULL
