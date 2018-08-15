@@ -31,5 +31,18 @@ const createNewUser = (userDetails, cb) => {
   });
 };
 
+const sendMsg = (userID, message, cb) => {
+  const queryString = `INSERT INTO messages (date, text, user_id)
+                        VALUES ($1,$2,$3)`;
+  const date = Date.now();
+  dbConnection.query(queryString, [date, message, userID], (err) => {
+    if (err) {
+      cb(err);
+    } else {
+      cb(null);
+    }
+  });
+};
 
-module.exports = { createNewUser };
+
+module.exports = { createNewUser, sendMsg };

@@ -26,6 +26,10 @@ const router = (request, response) => {
     handlers.createUserHandler(request, response);
   } else if (url === '/login') {
     handlers.loginHandler(request, response);
+  } else if (url === '/send-msg') {
+    handlers.sendMsgHandler(request, response);
+  } else if (url === '/get-msgs') {
+    handlers.getMsgsHandler(request, response);
   } else {
     handlers.notFoundHandler(response);
   }

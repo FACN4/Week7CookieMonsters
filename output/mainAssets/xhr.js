@@ -17,3 +17,18 @@ var postJsonXHR = function postJsonXHR(url, body, cb) {
   xhr.setRequestHeader('Content-Type', 'application/json');
   xhr.send(JSON.stringify(body));
 };
+
+var getXhr = function getXhr(url, cb) {
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4) {
+      if (xhr.status === 200) {
+        cb(JSON.parse(xhr.responseText));
+      } else {
+        cb(xhr.responseText);
+      }
+    }
+  };
+  xhr.open('GET', url, true);
+  xhr.send();
+};

@@ -12,5 +12,19 @@ const checkUsernameExists = (username, cb) => {
   });
 };
 
+const getMsgs = (cb) => {
+  const queryString = `SELECT * FROM (SELECT messages.date, messages.text, users.name, users.photo_url, users.is_admin, colour.colour FROM messages
+                INNER JOIN users ON messages.user_id = users.id
+                INNER JOIN colour ON colour.id = users.name_colour_id
+                ORDER BY messages.date DESC LIMIT 50) AS tbl ORDER BY tbl.date ASC;`;
+  dbConnection.query(queryString, (error, res) => {
+    if (error) {
+      cb(error, false);
+    } else {
+      cb(null, res.rows);
+    }
+  });
+};
 
-module.exports = { checkUsernameExists };
+
+module.exports = { checkUsernameExists, getMsgs };
