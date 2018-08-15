@@ -7,7 +7,7 @@ const sendMsgHandler = (request, response) => {
   });
   request.on('end', () => {
     const message = JSON.parse(allData);
-    const userID = 1;
+    const userID = 2;
     sendMsg(userID, message, (err) => {
       if (err) {
         console.log(err);

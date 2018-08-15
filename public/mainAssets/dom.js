@@ -26,7 +26,7 @@ const buildMsg = (imgURL, username, colour, text) => {
   const user = document.createElement('div');
   user.className = 'usertag';
   user.textContent = username;
-  user.color = colour;
+  user.style.color = colour;
   const msgText = document.createElement('div');
   msgText.className = 'messageText';
   msgText.textContent = text;
