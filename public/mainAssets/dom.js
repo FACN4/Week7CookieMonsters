@@ -3,6 +3,7 @@
 const userMsg = document.getElementById('userMsg');
 const submitBtn = document.getElementById('submitBtn');
 const messageBoard = document.getElementById('message-board');
+const logoutBtn = document.getElementById('logout');
 
 let globalMessages = '';
 
@@ -64,5 +65,15 @@ submitBtn.addEventListener('click', () => {
       console.log(err);
     }
     updateBoard();
+  });
+});
+
+logoutBtn.addEventListener('click', () => {
+  getXhr('/logout', (err) => {
+    if (err) {
+      console.log('Sorry, we could not log you out');
+    } else {
+      window.location.replace('/');
+    }
   });
 });

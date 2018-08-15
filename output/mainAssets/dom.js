@@ -5,6 +5,7 @@
 var userMsg = document.getElementById('userMsg');
 var submitBtn = document.getElementById('submitBtn');
 var messageBoard = document.getElementById('message-board');
+var logoutBtn = document.getElementById('logout');
 
 var globalMessages = '';
 
@@ -64,5 +65,15 @@ submitBtn.addEventListener('click', function () {
       console.log(err);
     }
     updateBoard();
+  });
+});
+
+logoutBtn.addEventListener('click', function () {
+  getXhr('/logout', function (err) {
+    if (err) {
+      console.log('Sorry, we could not log you out');
+    } else {
+      window.location.replace('/');
+    }
   });
 });
