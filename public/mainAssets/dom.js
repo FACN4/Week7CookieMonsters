@@ -4,14 +4,13 @@ const userMsg = document.getElementById('userMsg');
 const submitBtn = document.getElementById('submitBtn');
 const messageBoard = document.getElementById('message-board');
 const logoutBtn = document.getElementById('logout');
+const usertag = document.getElementById('username');
 
-let globalMessages = '';
+let globalMessages = [];
+let globalUser = '';
 
 
 const updateScroll = () => {
-  console.log('scroll');
-  console.log(messageBoard.scrollTop);
-  console.log(messageBoard.scrollHeight);
   messageBoard.scrollTop = messageBoard.scrollHeight;
 };
 
@@ -19,6 +18,9 @@ const updateScroll = () => {
 const buildMsg = (imgURL, username, colour, text) => {
   const post = document.createElement('div');
   post.className = 'post';
+  if (globalUser === username) {
+    post.className = 'post currentUser';
+  }
   const image = document.createElement('img');
   image.className = 'userimg';
   image.src = imgURL;
@@ -44,8 +46,6 @@ const updateBoard = () => {
   getXhr('/get-msgs', (allMessages) => {
     if (JSON.stringify(allMessages) !== JSON.stringify(globalMessages)) {
       globalMessages = allMessages;
-      console.log(globalMessages);
-      console.log(allMessages);
       allMessages.forEach((msg) => {
         buildMsg(msg.photo_url, msg.name, msg.colour, msg.text);
       });
@@ -54,18 +54,33 @@ const updateBoard = () => {
   });
 };
 
+getXhr('./unlockCookie', (resp) => {
+  globalUser = resp.name;
+  usertag.textContent = resp.name;
+  updateBoard();
+});
+
 window.setInterval(updateBoard, 1000);
 
-updateBoard();
 
-submitBtn.addEventListener('click', () => {
+const sendMessage = () => {
   const message = userMsg.value;
   postJsonXHR('/send-msg', message, (err) => {
     if (err) {
       console.log(err);
     }
     updateBoard();
+    userMsg.value = '';
   });
+};
+
+submitBtn.addEventListener('click', sendMessage);
+
+userMsg.addEventListener('keydown', (e) => {
+  if (e.keyCode === 13) {
+    e.preventDefault();
+    sendMessage();
+  }
 });
 
 logoutBtn.addEventListener('click', () => {

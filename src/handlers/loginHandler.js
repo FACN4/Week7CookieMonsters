@@ -12,11 +12,8 @@ const loginHandler = (request, response) => {
   });
 
   request.on('end', () => {
-    console.log('This is the end ', allData);
     const body = JSON.parse(allData);
-    console.log('LOGIN HANDLER>>>>>>>>>>>> THIS IS BODY: ', body);
     checkNameAndPassword(body, (err, result) => {
-      console.log('LOGIN HANDLER>>>>>>>>>>>> THIS IS result: ', result);
       if (err) {
         console.log(err);
       } else if (result === 'user do not exist') {
@@ -26,7 +23,7 @@ const loginHandler = (request, response) => {
         response.writeHead(500, { 'Content-Type': 'text/plain' });
         response.end(result);
       } else {
-        const cookieDetails = { logged_in: true, user_id: result.id };
+        const cookieDetails = { user_id: result.id, name: result.name };
         const cookie = sign(cookieDetails, SECRET);
         response.writeHead(200, { 'Set-Cookie': `jwt=${cookie}; HttpOnly` });
         response.end();

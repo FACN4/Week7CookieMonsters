@@ -37,6 +37,8 @@ const router = (request, response) => {
     handlers.logoutHandler(request, response);
   } else if (url === '/main.html') {
     handlers.mainHandler(request, response);
+  } else if (url === '/unlockCookie') {
+    handlers.unlockCookieHandler(request, response);
   } else {
     handlers.notFoundHandler(response);
   }

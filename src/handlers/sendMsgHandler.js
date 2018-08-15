@@ -20,6 +20,7 @@ const sendMsgHandler = (request, response) => {
         response.end('sorry your message could not be sent');
       } else {
         userID = decoded.user_id;
+        console.log(decoded);
         sendMsg(userID, message, (error) => {
           if (error) {
             console.log(err);

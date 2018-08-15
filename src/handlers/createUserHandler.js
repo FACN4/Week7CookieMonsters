@@ -19,9 +19,9 @@ const createUserHandler = (request, response) => {
             response.writeHead(500, { 'Content-Type': 'text/plain' });
             response.end('Sorry we were not able to make you an account');
           } else {
-            const row = resp.rows;
+            const user = resp.rows[0];
             // Username creation successfull
-            const cookieDetails = { logged_in: true, user_id: row.id };
+            const cookieDetails = { user_id: user.id, name: user.name };
             const cookie = sign(cookieDetails, SECRET);
             response.writeHead(200, { 'Set-Cookie': `jwt=${cookie}; HttpOnly` });
             response.end();
