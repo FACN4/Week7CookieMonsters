@@ -5,6 +5,8 @@ const createUserHandler = require('./createUserHandler');
 const loginHandler = require('./loginHandler');
 const sendMsgHandler = require('./sendMsgHandler');
 const getMsgsHandler = require('./getMsgsHandler');
+const logoutHandler = require('./logoutHandler');
+const mainHandler = require('./mainHandler');
 
 module.exports = {
   homePageHandler,
@@ -14,4 +16,6 @@ module.exports = {
   loginHandler,
   sendMsgHandler,
   getMsgsHandler,
+  logoutHandler,
+  mainHandler,
 };

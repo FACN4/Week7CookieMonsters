@@ -1,7 +1,6 @@
 const handlers = require('./handlers/handlers');
 
 const assetURLs = [
-  '/main.html',
   '/login.html',
   '/createAccount.html',
   '/mainAssets/main.js',
@@ -29,12 +28,15 @@ const router = (request, response) => {
   } else if (url === '/create-user') {
     handlers.createUserHandler(request, response);
   } else if (url === '/login') {
-    // console.log(handlers.loginHandler);
     handlers.loginHandler(request, response);
   } else if (url === '/send-msg') {
     handlers.sendMsgHandler(request, response);
   } else if (url === '/get-msgs') {
     handlers.getMsgsHandler(request, response);
+  } else if (url === '/logout') {
+    handlers.logoutHandler(request, response);
+  } else if (url === '/main.html') {
+    handlers.mainHandler(request, response);
   } else {
     handlers.notFoundHandler(response);
   }

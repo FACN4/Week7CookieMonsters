@@ -6,6 +6,8 @@
 body{
   margin:0px;
   overflow-y: hidden;
+  height: 100%;
+  background-color: rgb(219, 213, 242);
 }
 
 h1 {
@@ -14,13 +16,20 @@ h1 {
   background-color: rgb(132, 2, 249);
   color:white;
   margin:0px;
-  padding: 10px;
+  padding:0px;
   font-weight: 600;
+  top:0px;
+  height: 45px;
+}
+section{
+  background-color: white;
 }
 
-section{
+#message-board{
   overflow-y:scroll;
-  height:60%;
+  height: calc(100% - 200px);
+  margin:10px 3% 10px 3%;
+  border: 1px solid black;
 }
 
 .post{
@@ -36,43 +45,43 @@ section{
   font-weight: bold;
 }
 
+img{
+  height:60px;
+}
+
+#textInputBox{
+  margin:10px 3% 10px 3%;
+  border: 1px solid black;
+}
+
 .textBox{
-  position: absolute;
-  bottom: 50px;
+  height:60px;
   width: 100%;
   display: flex;
   align-items:center;
 }
 .textBox textarea {
   width:89%;
-  height: 80px;
-  margin-left: 10px;
+  height: 100%;
 }
 .textBox button{
-  width: 9%;
+  width: 10%;
 }
-
-img{
-  height:60px;
-}
-
 
 footer{
   display:flex;
   width: 100%;
   justify-content: space-between;
-  position:absolute;
-  bottom:0px;
   color:white;
   background-color: black;
   font-size: 25px;
-  height: 50px;
+  height: 55px;
 
 }
 footer span{
   padding: 10px 5%;
 }
 
-footer span:hover{
+#logout:hover{
   background-color: rgb(132, 2, 249);
 }
