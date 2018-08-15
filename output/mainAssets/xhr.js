@@ -6,7 +6,7 @@ var postJsonXHR = function postJsonXHR(url, body, cb) {
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4) {
-      if (xhr.status === 300) {
+      if (xhr.status === 200) {
         cb(null);
       } else {
         cb(xhr.responseText);

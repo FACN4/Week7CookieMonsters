@@ -4,7 +4,7 @@ const postJsonXHR = (url, body, cb) => {
   const xhr = new XMLHttpRequest();
   xhr.onreadystatechange = () => {
     if (xhr.readyState === 4) {
-      if (xhr.status === 300) {
+      if (xhr.status === 200) {
         cb(null);
       } else {
         cb(xhr.responseText);

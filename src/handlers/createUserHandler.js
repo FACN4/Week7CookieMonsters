@@ -17,8 +17,9 @@ const createUserHandler = (request, response) => {
             response.writeHead(500, { 'Content-Type': 'text/plain' });
             response.end('Sorry we were not able to make you an account');
           } else {
+            console.log('We have made an account');
             // Username creation successfull
-            response.writeHead(300, { Location: '/main.html' });
+            response.writeHead(200);
             response.end();
           }
         });
