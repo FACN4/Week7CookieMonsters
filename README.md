@@ -1,8 +1,11 @@
 # FACN4 CookieMonsters introduces fight club:
 ## The concept
-Cookie Monsters have built an annonymous chat site. Anybody can create an annonymous account and post in the chat rooms, just make sure you don't give away your identity in your username! 
+Cookie Monsters have built an annonymous chat site hosted on heroku while using travis. Anybody can create an annonymous account and post in the chat room, just make sure you don't give away your identity in your username!.
 
-<iframe style="border: none;" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/file/dn3iGuJNJrGhnhoZvtxiT4PV/SomeApp?node-id=0%3A1" allowfullscreen></iframe>
-
+## this is our scema:
+![schema](https://user-images.githubusercontent.com/33840142/44159853-53364d00-a0c1-11e8-97c8-669b957aa31c.png)
+## our arcitectual design:
+![architecture](https://user-images.githubusercontent.com/33840142/44160038-d5267600-a0c1-11e8-9f8d-559f004d264d.png)
+## how did we do this ? *you might be asking*
 ![cookieMonsterGoneBad](https://media.giphy.com/media/13NP2tXPeJzP44/giphy.gif)
 
