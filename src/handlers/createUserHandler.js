@@ -1,6 +1,8 @@
-const { checkUsernameExists } = require('../query/getData.js');
+const { sign } = require('jsonwebtoken');
 const { createNewUser } = require('../query/postData.js');
+const { checkUsernameExists } = require('../query/getData.js');
 
+const SECRET = 'denis';
 const createUserHandler = (request, response) => {
   let allData = '';
   request.on('data', (chunk) => {
@@ -12,14 +14,16 @@ const createUserHandler = (request, response) => {
       if (err) {
         console.log(err);
       } else if (userIsUnique) {
-        createNewUser(userDetails, (error) => {
+        createNewUser(userDetails, (error, resp) => {
           if (error) {
             response.writeHead(500, { 'Content-Type': 'text/plain' });
             response.end('Sorry we were not able to make you an account');
           } else {
-            console.log('We have made an account');
+            const row = resp.rows;
             // Username creation successfull
-            response.writeHead(200);
+            const cookieDetails = { logged_in: true, user_id: row.id };
+            const cookie = sign(cookieDetails, SECRET);
+            response.writeHead(200, { 'Set-Cookie': `jwt=${cookie}; HttpOnly` });
             response.end();
           }
         });
