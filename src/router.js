@@ -7,10 +7,14 @@ const assetURLs = [
   '/mainAssets/main.js',
   '/mainAssets/dom.js',
   '/mainAssets/main.css',
+  '/loginAssets/submitLogin.js',
+  '/dom.js',
+  '/style.css',
   '/mainAssets/xhr.js',
   '/mainAssets/favicon.ico',
   '/supertest-500',
   '/loginAssets/forms.css',
+  '/loginAssets/loginCheck.js',
   '/loginAssets/authentication.js',
   '/loginAssets/validation.js',
 ];
@@ -25,6 +29,7 @@ const router = (request, response) => {
   } else if (url === '/create-user') {
     handlers.createUserHandler(request, response);
   } else if (url === '/login') {
+    // console.log(handlers.loginHandler);
     handlers.loginHandler(request, response);
   } else if (url === '/send-msg') {
     handlers.sendMsgHandler(request, response);

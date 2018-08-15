@@ -16,8 +16,10 @@ const assetsHandler = (url, request, response) => {
     json: 'application/json',
   };
   const filePath = path.join(__dirname, '..', '..', 'output', url);
+  console.log(filePath);
   fs.readFile(filePath, (error, file) => {
     if (error) {
+      console.log('THIS IS ASSET HANDLER ERROR: ', error);
       response.writeHead(500, { 'Content-Type': 'text/html' });
       response.end('<h1>sorry, something went wrong</h1>');
     } else {
