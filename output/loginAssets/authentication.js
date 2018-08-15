@@ -5,6 +5,11 @@
 
 var signUp = function signUp(details, cb) {
   postJsonXHR('/create-user', details, function (err) {
-    if (err) cb(err);
+    if (err) {
+      cb(err);
+    } else {
+      // Redirect to main.html
+      window.location.replace('/main.html');
+    }
   });
 };

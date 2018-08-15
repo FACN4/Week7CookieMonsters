@@ -17,19 +17,32 @@ const createNewUser = (userDetails, cb) => {
     const imgURL = `https://robohash.org/${userDetails.username}`;
     const colourID = Math.floor(Math.random() * 100) + 1;
     const queryString = `INSERT INTO users (name, password, photo_url,is_admin,name_colour_id)
-    VALUES ($1, $2, $3, $4, $5);`;
+    VALUES ($1, $2, $3, $4, $5) RETURNING id, name, password, photo_url, is_admin, name_colour_id;`;
 
     const values = [userDetails.username, hash, imgURL, false, colourID];
 
-    dbConnection.query(queryString, values, (error) => {
+    dbConnection.query(queryString, values, (error, resp) => {
       if (error) {
         cb(error);
       } else {
-        cb(null);
+        cb(null, resp);
       }
     });
   });
 };
 
+const sendMsg = (userID, message, cb) => {
+  const queryString = `INSERT INTO messages (date, text, user_id)
+                        VALUES ($1,$2,$3)`;
+  const date = Date.now();
+  dbConnection.query(queryString, [date, message, userID], (err) => {
+    if (err) {
+      cb(err);
+    } else {
+      cb(null);
+    }
+  });
+};
 
-module.exports = { createNewUser };
+
+module.exports = { createNewUser, sendMsg };

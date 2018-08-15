@@ -2,7 +2,7 @@
 
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="./main.css" />
+  <link rel="stylesheet" type="text/css" href="./mainAssets/main.css" />
   <link rel="icon" href="../favicon.ico" type="image/x-icon" />
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,34 +10,20 @@
 </head>
 <body>
   <h1>Fight Club</h1>
+  <section id="message-board">
+  </section>
   <section>
-    <div class="post">
-      <img class="userimg" src="https://pbs.twimg.com/profile_images/948761950363664385/Fpr2Oz35_400x400.jpg" alt="a dog">
-      <div>
-        <div class="usertag">username</div>
-        <div class="messageText">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-          irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</div>
-      </div>
-    </div>
-    <div class="post">
-      <img class="userimg" src="https://pbs.twimg.com/profile_images/948761950363664385/Fpr2Oz35_400x400.jpg" alt="a dog">
-      <div>
-        <div class="usertag">username</div>
-        <div class="messageText">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-          irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</div>
-      </div>
-    </div>
-    <div class="post">
-      <img class="userimg" src="https://pbs.twimg.com/profile_images/948761950363664385/Fpr2Oz35_400x400.jpg" alt="a dog">
-      <div>
-        <div class="usertag">username</div>
-        <div class="messageText">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed d"</div>
-      </div>
+    <div class="textBox">
+      <textarea id="userMsg"></textarea>
+      <button type="button" name="button" id="submitBtn">send</button>
     </div>
   </section>
   <footer>
     <span id="username">username</span>
     <span id="password">Logout</span>
   </footer>
+  <script src="./mainAssets/xhr.js" type="text/javascript"></script>
+  <script src="./mainAssets/dom.js" type="text/javascript"></script>
+  <script src="./mainAssets/main.js" type="text/javascript"></script>
 </body>
 </html>
