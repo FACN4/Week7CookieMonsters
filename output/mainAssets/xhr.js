@@ -1,7 +1,7 @@
 'use strict';
 
 /* eslint-disable no-unused-vars */
-
+console.log('this is XHR');
 var postJsonXHR = function postJsonXHR(url, body, cb) {
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function () {
