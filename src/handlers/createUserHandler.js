@@ -18,7 +18,7 @@ const createUserHandler = (request, response) => {
             response.end('Sorry we were not able to make you an account');
           } else {
             // Username creation successfull
-            response.writeHead(300, { Location: '/main.html' });
+            response.writeHead(200, { Location: '/main.html' });
             response.end();
           }
         });

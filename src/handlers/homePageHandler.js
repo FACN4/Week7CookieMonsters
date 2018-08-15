@@ -9,8 +9,10 @@ const filePathMain = path.join(__dirname, '..', '..', 'output', 'main.html');
 *  else go to login.html
 */
 const homePageHandler = (request, response) => {
-  if (false) { // <<<<<<<<<<<<<<<<<<<<<<DONT FORGET THIS CONDITION
+  if (false) {
+    // <<<<<<<<<<<<<<<<<<<<<<DONT FORGET THIS CONDITION
     // if there is a cookie go to main.html
+
     fs.readFile(filePathMain, (error, file) => {
       if (error) {
         response.writeHead(500, { 'Content-Type': 'text/html' });
@@ -22,6 +24,7 @@ const homePageHandler = (request, response) => {
     });
   } else {
     // if no redirect to login.html
+    console.log('THIS IS LOGIN IN PAGE HANDLER');
     fs.readFile(filePathLogin, (error, file) => {
       if (error) {
         response.writeHead(500, { 'Content-Type': 'text/html' });

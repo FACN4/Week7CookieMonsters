@@ -12,5 +12,4 @@ const checkUsernameExists = (username, cb) => {
   });
 };
 
-
 module.exports = { checkUsernameExists };
