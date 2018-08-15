@@ -1,7 +1,7 @@
-const http = require ('http');
+const http = require('http');
 const router = require('./router');
 
-//create server
+// create server
 const server = http.createServer(router);
 /* Port for local host is 8000, process.env allows for Heroku */
 const port = process.env.PORT || 8000;

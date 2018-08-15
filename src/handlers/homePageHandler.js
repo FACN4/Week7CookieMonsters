@@ -1,16 +1,15 @@
 const fs = require('fs');
 const path = require('path');
 
-const filePathLogin = path.join(__dirname, '..', '..', 'loginSignup', 'login.html');
-const filePathMain = path.join(__dirname, '..', '..', 'main.html');
+const filePathLogin = path.join(__dirname, '..', '..', 'output', 'login.html');
+const filePathMain = path.join(__dirname, '..', '..', 'output', 'main.html');
 
 /* homePageHandler will check if the user is already logged in to the system:
 *  if so go to main.html
 *  else go to login.html
 */
-const homePageHandler = (response) => {
-  if (true) {
-    // <<<<<<<<<<<<<<<<<<<<<<DONT FORGET THIS CONDITION
+const homePageHandler = (request, response) => {
+  if (false) { // <<<<<<<<<<<<<<<<<<<<<<DONT FORGET THIS CONDITION
     // if there is a cookie go to main.html
     fs.readFile(filePathMain, (error, file) => {
       if (error) {
@@ -34,3 +33,5 @@ const homePageHandler = (response) => {
     });
   }
 };
+
+module.exports = homePageHandler;
